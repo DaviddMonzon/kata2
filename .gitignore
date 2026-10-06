@@ -6,7 +6,7 @@ out/
 .kotlin
 .class
 .jar
-,zip
+.zip
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
