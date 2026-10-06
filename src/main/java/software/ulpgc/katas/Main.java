@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     static void main() throws IOException {
@@ -17,11 +19,7 @@ public class Main {
     }
 
     private static List<Movie> toMovies(List<String> strings) {
-        List<Movie> result = new ArrayList<>();
-        for (int i = 1; i < strings.size(); i++) {
-            result.add(toMovie(strings.get(i)));
-        }
-        return result;
+        return IntStream.range(1, strings.size()).mapToObj(i -> toMovie(strings.get(i))).collect(Collectors.toList());
     }
 
     private static Movie toMovie(String string) {
