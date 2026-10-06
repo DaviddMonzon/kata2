@@ -6,11 +6,10 @@ import java.util.List;
 public class Main {
     static void main() throws IOException {
         File file = new File("hello.txt");
-        try (Reader reader = new BufferedReader(new FileReader(file))) {
-            List<String> content = reader.readAllLines();
-            for (String line : content) {
-                System.out.println(line);
-            }
+        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+            byte[] bytes = is.readAllBytes();
+            String s = new String(bytes);
+            System.out.println(s);
         }
     }
 }
