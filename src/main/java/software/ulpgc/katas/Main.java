@@ -1,13 +1,18 @@
 package software.ulpgc.katas;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 
 public class Main {
-    static void main() {
-        String a = "¡Hola Mundo!";
-        byte[] bytes = a.getBytes();
-        String s = new String(bytes, StandardCharsets.ISO_8859_1);
-        System.out.println(s);
+    static void main() throws IOException {
+        File file = new File("hello.txt");
+        FileReader reader = new FileReader(file);
+        List<String> content = reader.readAllLines();
+        for (String line : content) {
+            System.out.println(line);
+        }
+        reader.close();
     }
 }
