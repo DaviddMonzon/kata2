@@ -1,15 +1,14 @@
 package software.ulpgc.katas;
 
 import java.io.*;
+import java.net.URL;
 import java.util.List;
 
 public class Main {
     static void main() throws IOException {
-        File file = new File("hello.txt");
-        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-            byte[] bytes = is.readAllBytes();
-            String s = new String(bytes);
-            System.out.println(s);
+        URL url = new URL("https://raw.githubusercontent.com/DaviddMonzon/kata2/refs/heads/main/movies.tsv");
+        try (Reader reader = new InputStreamReader(url.openStream())) {
+            
         }
     }
 }
