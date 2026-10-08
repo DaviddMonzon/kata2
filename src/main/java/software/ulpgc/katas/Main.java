@@ -8,11 +8,11 @@ import java.util.List;
 public class Main {
     static void main() throws IOException {
         File file = new File("hello.txt");
-        FileReader reader = new FileReader(file);
-        List<String> content = reader.readAllLines();
-        for (String line : content) {
-            System.out.println(line);
+        try (FileReader reader = new FileReader(file)) {
+            List<String> content = reader.readAllLines();
+            for (String line : content) {
+                System.out.println(line);
+            }
         }
-        reader.close();
     }
 }
